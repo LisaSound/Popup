@@ -1,27 +1,48 @@
-smq-popup {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 2000;
-  display: block;
-}
+'use strict';
 
-smq-popup .window {
-  margin: 200px auto;
-  width: 500px;
-  min-height: 100px;
-  background: rgba(255,255,255,1);
-  border-radius: 10px;
-}
+var smq = {
+  popup: function(config) {
 
-smq-popup .close {
-  margin: 0 10px 0 0;
-  float: right;
-  color: rgba(200,200,200,1);
-  font-size: 20px;
-  cursor: pointer;
-  font-family: sans-serif;
-}
+    this.conf = config || {};
+
+    this.init = function() {
+      var conf = config || {};
+      //if there are <smq-popup>, remove nodes
+      var existingNodes = document.getElementsByTagName("smq-popup");
+      if(existingNodes && existingNodes.length > 0) {
+        for(var i = 0; i<existingNodes.length; i++) {
+          document.body.removeChild(existingNodes[i]);
+        }
+      }
+
+      //create popup nodes
+      this.nodePopup = document.createElement("smq-popup");
+      this.nodePopup.innerHTML = '<div class="window"><a class="close">x</a class="close"><header><h1 class="api-title"></h1></header><div class="api-content"></div></div>';
+      this.nodePopup.getElementsByClassName("api-title")[0].innerHTML = this.conf.title || "";
+      this.nodePopup.getElementsByClassName("api-content")[0].innerHTML = this.conf.innerHtml || "";
+
+      //click "x" button to close popup window
+      this.nodeClose = this.nodePopup.getElementsByClassName("close")[0];
+      this.nodeClose.addEventListener("click", function() {
+        this.close();
+      }.bind(this), false);
+    };
+
+    this.show = function() {
+      //insert nodePopup in body
+      document.body.appendChild(this.nodePopup);
+    };
+
+    this.close = function() {
+      this.nodePopup ? document.body.removeChild(this.nodePopup) : null;
+      this.nodePopup = undefined;
+    };
+
+    this.init(config);
+
+  }
+};
+
+
+
+
