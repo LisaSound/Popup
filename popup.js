@@ -1,7 +1,7 @@
 'use strict';
 
 var smq = {
-  popup: function(config) {
+  Popup: function(config) {
 
     this.conf = config || {};
 

@@ -24,7 +24,7 @@ include this in your html:
 Create a Popup instance:
 
 ```javascript
-var myPopup = new smq.popup({
+var myPopup = new smq.Popup({
   title: 'Product Description',
   innerHtml: '<img src="product.jpg">'
 });
