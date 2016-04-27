@@ -1,0 +1,18 @@
+header {
+  text-align: center;
+}
+
+table#cocktail-list {
+  margin: 30px 50px;
+  width: 800px;
+}
+
+table#cocktail-list th {
+  text-align: left;
+}
+
+#cocktail-img {
+  width: 200px;
+  margin: 0 auto;
+  display: block;
+}

@@ -10,7 +10,8 @@ smq-popup {
 }
 
 smq-popup .window {
-  margin: 200px auto;
+  padding: 10px 20px 20px;
+  margin: 150px auto;
   width: 500px;
   min-height: 100px;
   background: rgba(255,255,255,1);
@@ -24,4 +25,8 @@ smq-popup .close {
   font-size: 20px;
   cursor: pointer;
   font-family: sans-serif;
+}
+
+smq-popup header.api-header h1 {
+  font-size: 1.5rem;
 }

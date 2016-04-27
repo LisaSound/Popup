@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../popup.css">
+    <link rel="stylesheet" type="text/css" href="menu.css">
+  </head>
+  <body>
+    <header>
+      <h1>Key West Bar</h1>
+      <h2>You are free to click every drink to see the details!</h2>
+    </header>
+    <table id="cocktail-list">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Ingredients</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script src="../popup.js"></script>
+    <script type="text/javascript">
+      'use strict';
+
+      window.onload = function() {
+        var scope = {};
+
+        var tbody = document.getElementById("cocktail-list").children[1];
+
+        // drinks data
+        var productsList = [
+          {
+            name: "White Russia",
+            ingredients: "Vodka, coffee liqueur, cream",
+            price: 30,
+            imageHref: "images/whiteRussia.jpg"
+          },
+          {
+            name: "Bloody Mary",
+            ingredients: "Vodka, tomato juice, salt, chili",
+            price: 35,
+            imageHref: "images/bloodyMary.jpg"
+          }
+        ]
+
+        // put drinks data into <table>
+        productsList.forEach(function(item, index, array) {
+          var newProductTr = document.createElement("tr");
+          newProductTr.innerHTML = "<td>" + item.name + "</td><td>" + item.ingredients + "</td><td>" + item.price + "</td>";
+          tbody.appendChild(newProductTr);
+        });
+        var trs = tbody.children;
+
+        // click event callback
+        function clickCocktailName(i) {
+          // create a popup instance
+          scope.detailPopup = new smq.Popup({
+            title: productsList[i].name,
+            innerHtml: '<img id="cocktail-img" src="' + productsList[i].imageHref + '"><hr><button id="cocktail-cancel">cancel</button>'
+          });
+          scope.detailPopup.show();
+          // bind close() to the cancel button
+          var detailPopupCancel = document.getElementById("cocktail-cancel");
+          detailPopupCancel.addEventListener("click", function(){
+            scope.detailPopup.close();
+          }, false);
+        }
+
+        // add event listener for every <tr>
+        for(var i = 0; i < productsList.length; i++) {
+          trs[i].addEventListener("click", clickCocktailName.bind(window, i), false);
+        }
+      }
+    </script>
+  </body>
+</html>
