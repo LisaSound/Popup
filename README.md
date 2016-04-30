@@ -1,5 +1,16 @@
-# Popup
-A simple lightweight popup plugin that doesn't require jQuery or any other libraries. It's simple to use.
+# Popup.js
+
+A lightweight popup JS plugin, easy to use.
+
+* Lightweight
+
+* No dependencies(It doesn't require jQuery or any other libraries).
+
+![](https://github.com/LisaSound/Popup/blob/screenshots/readme_digest/example_screenshot.png)
+
+Check out the [Demos](https://github.com/LisaSound/Popup/tree/master/examples) .
+
+Also see the [Changelog](https://github.com/LisaSound/Popup/blob/master/CHANGELOG.md).
 
 
 # Installation
