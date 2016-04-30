@@ -10,8 +10,6 @@ A lightweight popup JS plugin, easy to use.
 
 Check out the [Demos](https://github.com/LisaSound/Popup/tree/master/examples) .
 
-Also see the [Changelog](https://github.com/LisaSound/Popup/blob/master/CHANGELOG.md).
-
 
 # Installation
 Place `popup.css` in your css folder.
