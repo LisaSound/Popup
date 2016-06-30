@@ -21,7 +21,7 @@ menuApp.controller('menuCtl', function menuCtl($scope) {
     // create a popup instance
     var detailPopup = new smq.Popup({
       title: drink.name,
-      innerHtml: '<img id="cocktail-img" src=' + drink.imageHref + '><hr><button id="cocktail-cancel" ng-click="closePop()">cancel</button>'
+      innerHtml: '<img id="cocktail-img" src=' + drink.imageHref + '><hr><button id="cocktail-cancel">cancel</button>'
     });
     detailPopup.show();
     // bind close() to the cancel button
