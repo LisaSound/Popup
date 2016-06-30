@@ -1,0 +1,33 @@
+<!doctype html5>
+<html ng-app="menu">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../popup.css">
+    <link rel="stylesheet" type="text/css" href="../src/css/menu.css">
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script src="../../popup.js"></script>
+    <script type="text/javascript" src="menu.js"></script>
+  </head>
+  <body ng-controller="menuCtl">
+    <header>
+      <h1>Key West Bar</h1>
+      <h2>You are free to click every drink to see the details!</h2>
+    </header>
+    <table id="cocktail-list">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Ingredients</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="drink in drinks" ng-click="clickDrink(drink)">
+          <td>{{drink.name}}</td>
+          <td>{{drink.ingredients}}</td>
+          <td>{{drink.price}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
